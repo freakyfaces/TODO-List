@@ -10,11 +10,11 @@ class TODOItem{
     public static var total_num = 0
     var id = Int()
     var description = ""
-    var data = Date()
+    var date = Date()
     
-    init(description: String, data: Date){
+    init(description: String, date: Date){
         self.description = description
-        self.data = data
+        self.date = date
         self.id = TODOItem.total_num
         TODOItem.total_num = TODOItem.total_num + 1
     }
@@ -22,10 +22,7 @@ class TODOItem{
 }
 
 struct ContentView: View {
-    @State var items: [TODOItem] = [
-        TODOItem(description: "Database Homework", data:Date())
-        ,TODOItem(description: "Mobile Programming Homework", data: Date())
-        ]
+    @State var items: [TODOItem] = []
     
     func deleteItem(at offsets: IndexSet){
         items.remove(atOffsets: offsets)
@@ -38,9 +35,13 @@ struct ContentView: View {
                     .bold()
                     .font(.title2)
                 ForEach(items, id: \.id){ item in
-                    Text(item.description)
-                        .bold()
-                        .font(.title3)
+                    VStack(alignment: .leading, spacing:10){
+                        Text(item.description)
+                            .bold()
+                            .font(.title3)
+                        Text("\(item.date)")
+                    }
+                    
                 }
                 .onDelete(perform: deleteItem)
             }
