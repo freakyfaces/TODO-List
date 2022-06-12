@@ -7,26 +7,25 @@
 import SwiftUI
 
 class TODOItem{
-    var total_num: Int = 0
+    public static var total_num = 0
     var id = Int()
     var description = ""
     var data = Date()
+    
     init(description: String, data: Date){
         self.description = description
         self.data = data
-        self.id = total_num
-        total_num = total_num + 1
+        self.id = TODOItem.total_num
+        TODOItem.total_num = TODOItem.total_num + 1
     }
     
-    func get_total_num() -> String{
-            return String(total_num)
-        }
 }
 
 struct ContentView: View {
     @State var items: [TODOItem] = [
-        TODOItem(description: "Database Homework", data: Date())
-             ]
+        TODOItem(description: "Database Homework", data:Date())
+        ,TODOItem(description: "Mobile Programming Homework", data: Date())
+        ]
     
     func deleteItem(at offsets: IndexSet){
         items.remove(atOffsets: offsets)
@@ -35,9 +34,9 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             List{
-                //Text("Total TODOs: \(TODOItem.get_total_num())")
-                //    .bold()
-                //    .font(.title2)
+                Text("Total TODOs: \(items.count)")
+                    .bold()
+                    .font(.title2)
                 ForEach(items, id: \.id){ item in
                     Text(item.description)
                         .bold()
@@ -50,7 +49,9 @@ struct ContentView: View {
                 NavigationLink {
                     AddView(items: $items)
                 } label: {
-                    Text("Add")
+                    Text("+")
+                        .bold()
+                        .font(.title)
                     
                 }
             }
