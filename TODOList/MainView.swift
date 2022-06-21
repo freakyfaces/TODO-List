@@ -30,7 +30,7 @@ struct MainView: View {
                 .tabItem {
                     Label("All", systemImage: "list.dash")
                 }
-            OrderedView(items: $items)
+            FilteredView(items: $items)
                 .tabItem{
                     Label("Ordered", systemImage: "square.and.pencil")
                 }

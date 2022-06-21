@@ -6,7 +6,7 @@
 //
 import SwiftUI
 
-struct OrderedView: View {
+struct FilteredView: View {
     @Binding var items: [TODOItem]
     @State private var showingSheet = false
     @State var date = Date()
@@ -15,7 +15,7 @@ struct OrderedView: View {
     func deleteItem(at offsets: IndexSet){
         items.remove(atOffsets: offsets)
     }
-    func formatDate(date: Date) -> String {
+    func checkDate(date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd-MM"
         return formatter.string(from: date)
@@ -25,7 +25,7 @@ struct OrderedView: View {
             List{
                 ForEach(items, id: \.id){ item in
                     Group{
-                        if formatDate(date: item.date) == formatDate(date: date){
+                        if checkDate(date: item.date) == checkDate(date: date){
                             VStack(alignment: .leading, spacing:10){
                                 Text(item.description)
                                     .bold()
@@ -37,7 +37,7 @@ struct OrderedView: View {
                 }
                 .onDelete(perform: deleteItem)
             }
-            .navigationTitle("Ordered TODOs")
+            .navigationTitle("Filtered TODOs")
             .toolbar{
                 Button("Pick a Date"){
                     showingSheet.toggle()
