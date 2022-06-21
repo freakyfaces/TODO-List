@@ -2,18 +2,18 @@
 //  ContentView.swift
 //  TODOList
 //
-//  Created by Sepehr Harfi on 6/11/22.
+//  Created by Sepehr Harfi on 6/21/22.
 //
 import SwiftUI
 
-struct ContentView: View {
+struct OrderedView: View {
     @Binding var items: [TODOItem]
-    
     func deleteItem(at offsets: IndexSet){
         items.remove(atOffsets: offsets)
     }
     
     var body: some View {
+
         NavigationView{
             List{
                 Text("Total TODOs: \(items.count)")
@@ -30,20 +30,7 @@ struct ContentView: View {
                 }
                 .onDelete(perform: deleteItem)
             }
-            .navigationTitle("TODOs")
-            .toolbar{
-                NavigationLink {
-                    AddView(items: $items)
-                } label: {
-                    Text("+")
-                        .bold()
-                        .font(.title)
-                    
-                }
-            }
-            NavigationLink(destination: OrderedView(items: $items)){
-                
-            }
+            .navigationTitle("Ordered TODOs")
         }
     }
 }
