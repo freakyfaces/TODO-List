@@ -26,7 +26,6 @@ struct ContentView: View {
                             .font(.title3)
                         Text("\(item.date)")
                     }
-                    
                 }
                 .onDelete(perform: deleteItem)
             }
