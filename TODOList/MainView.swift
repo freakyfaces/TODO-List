@@ -28,11 +28,11 @@ struct MainView: View {
         TabView {
             ContentView(items: $items)
                 .tabItem {
-                    Label("All", systemImage: "list.dash")
+                    Label("All", systemImage: "list.bullet.circle")
                 }
             FilteredView(items: $items)
                 .tabItem{
-                    Label("Ordered", systemImage: "square.and.pencil")
+                    Label("Filtered By Date", systemImage: "calendar.circle")
                 }
         }
     }
