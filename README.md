@@ -5,7 +5,7 @@ You can also sort TODOs by their date or in an alphabetical order.
  این پروژه مربوط است به تمرین سه برنامه سازی موبایل نیمسال دوم ۱۴۰۰-۱۴۰۱ که نام اعضای گروه در زیر آورده شده است.
 ## Teammates
 <ul>
-  <li>مهدی تیموری انار(۹۹۱۰۱۳۵۴)</li>
-  <li>سپهر حرفی(۹۹۱۰۹۵۵۲)</li>
-  <li> امیرسعید احمدی تنکابنی(۹۹۱۰۱۰۴۳)</li>
+  <li>مهدی تیموری انار(۹۹۱۰۱۳۵۴)- Mahdi Teymouri Anar</li>
+  <li>سپهر حرفی(۹۹۱۰۹۵۵۲) - Sepehr Harfi</li>
+  <li> امیرسعید احمدی تنکابنی(۹۹۱۰۱۰۴۳) - Amir Saeed Ahmadi </li>
 </ul>
